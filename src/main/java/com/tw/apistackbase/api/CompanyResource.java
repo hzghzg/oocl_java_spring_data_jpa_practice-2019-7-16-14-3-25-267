@@ -15,6 +15,10 @@ public class CompanyResource {
         return companyRepository.findAll();
     }
     
+    /*@PostMapping(produces = {"application/json"})
+    public Company add(@RequestBody Company company) {
+        return  companyRepository.save(company);
+    }*/
     @PostMapping(produces = {"application/json"})
     public Company add(@RequestBody Company company) {
         return  companyRepository.save(company);
@@ -22,6 +26,10 @@ public class CompanyResource {
     @PutMapping(produces = {"application/json"})
     public Company update(@RequestBody Company company) {
         return  companyRepository.save(company);
+    }
+    @DeleteMapping(produces = {"application/json"})
+    public void delete(@RequestBody Company company) {
+        companyRepository.delete(company);
     }
 
 }
